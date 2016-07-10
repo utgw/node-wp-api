@@ -1,11 +1,8 @@
 module.exports = (function () {
-
   return {
-
     init: function (api) {
       this.getPosts(api);
     },
-
     getPosts: function (api) {
 
       $.ajax({
@@ -27,7 +24,5 @@ module.exports = (function () {
         console.log(error);
       });
     }
-
   };
-
 })();
