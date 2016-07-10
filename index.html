@@ -6,11 +6,23 @@
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
-
-<h1 class="app-title">WP API Sample Application</h1>
-
-<ul class="posts"></ul>
-
+<h1 class="app-title">ここにスライドのタイトルを入れると吉</h1>
+<div id="vue-app">
+  <div tabindex="-1" @keydown="keyDown($event)">
+    <button type="button" @click="fetchData" :disabled="fetchDone">Fetch</button>
+    <button type="button" @click="prev">&lt;</button>
+    <span v-if="fetchDone">{{ nowWatching + 1 }} / {{ articlesNum }}</span>
+    <button type="button" @click="next">&gt;</button>
+    <div v-if="fetchDone">
+      {{{ articles[nowWatching] }}}
+    </div>
+    <div>
+      <button type="button" @click="prev">&lt;</button>
+      <span v-if="fetchDone">{{ nowWatching + 1 }} / {{ articlesNum }}</span>
+      <button type="button" @click="next">&gt;</button>
+    </div>
+  </div>
+</div>
 <script src="./assets/js/bundle.js"></script>
 </body>
 </html>
